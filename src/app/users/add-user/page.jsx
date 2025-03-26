@@ -39,12 +39,12 @@ export default function AddUser() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-      <div className="mb-8">
+    <div className="max-w-3xl mx-auto py-12 px-6 sm:px-8 lg:px-10">
+      <div className="mb-6">
         <Link href="/users">
-          <button className="flex items-center text-indigo-600 hover:text-indigo-900">
+          <button className="flex items-center text-indigo-600 hover:text-indigo-800 transition duration-300 ease-in-out">
             <svg
-              className="h-5 w-5 mr-1"
+              className="h-5 w-5 mr-2"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
               fill="currentColor"
@@ -60,20 +60,22 @@ export default function AddUser() {
         </Link>
       </div>
 
-      <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-6">
-        <div className="mb-6">
-          <h1 className="text-2xl font-bold text-gray-900">Add New User</h1>
-          <p className="mt-1 text-sm text-gray-600">
-            Please fill out the form below to create a new user.
+      <div className="bg-white p-8 shadow-xl sm:rounded-lg">
+        <div className="mb-8">
+          <h1 className="text-3xl font-semibold text-gray-900">
+            Create New User
+          </h1>
+          <p className="mt-2 text-lg text-gray-600">
+            Please complete the form below to add a new user to the system.
           </p>
         </div>
 
         {error && (
-          <div className="mb-4 bg-red-50 border-l-4 border-red-400 p-4 rounded">
+          <div className="mb-5 bg-red-50 border-l-4 border-red-400 p-4 rounded-md">
             <div className="flex">
               <div className="flex-shrink-0">
                 <svg
-                  className="h-5 w-5 text-red-400"
+                  className="h-6 w-6 text-red-400"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
@@ -92,7 +94,7 @@ export default function AddUser() {
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-8">
           <div>
             <label
               htmlFor="name"
@@ -100,14 +102,14 @@ export default function AddUser() {
             >
               Name
             </label>
-            <div className="mt-1">
+            <div className="mt-2">
               <input
                 id="name"
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Enter full name"
-                className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md p-2 border"
+                className="block w-full px-4 py-2 border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-base"
                 required
               />
             </div>
@@ -120,24 +122,24 @@ export default function AddUser() {
             >
               Email address
             </label>
-            <div className="mt-1">
+            <div className="mt-2">
               <input
                 id="email"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter email address"
-                className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md p-2 border"
+                className="block w-full px-4 py-2 border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-base"
                 required
               />
             </div>
           </div>
 
-          <div className="flex justify-end">
+          <div className="flex justify-end space-x-4">
             <Link href="/users">
               <button
                 type="button"
-                className="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mr-3"
+                className="bg-white py-3 px-6 border border-gray-300 rounded-lg shadow-md text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 Cancel
               </button>
@@ -145,14 +147,14 @@ export default function AddUser() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`inline-flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ${
+              className={`inline-flex items-center py-3 px-6 border border-transparent rounded-lg shadow-md text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-200 ease-in-out ${
                 isSubmitting ? "opacity-75 cursor-not-allowed" : ""
               }`}
             >
               {isSubmitting ? (
                 <>
                   <svg
-                    className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
+                    className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
